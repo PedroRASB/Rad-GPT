@@ -1,0 +1,85 @@
+# Generate Reports from segmentation
+
+### Dataset Format
+
+Assemble the dataset in this format:
+```
+AbdomenAtlas
+├── BDMAP_A0000001
+|    ├── ct.nii.gz
+│    └── predictions
+│          ├── liver_tumor.nii.gz
+│          ├── kidney_tumor.nii.gz
+│          ├── pancreas_tumor.nii.gz
+│          ├── aorta.nii.gz
+│          ├── gall_bladder.nii.gz
+│          ├── kidney_left.nii.gz
+│          ├── kidney_right.nii.gz
+│          ├── liver.nii.gz
+│          ├── pancreas.nii.gz
+│          └──...
+├── BDMAP_A0000002
+|    ├── ct.nii.gz
+│    └── predictions
+│          ├── liver_tumor.nii.gz
+│          ├── kidney_tumor.nii.gz
+│          ├── pancreas_tumor.nii.gz
+│          ├── aorta.nii.gz
+│          ├── gall_bladder.nii.gz
+│          ├── kidney_left.nii.gz
+│          ├── kidney_right.nii.gz
+│          ├── liver.nii.gz
+│          ├── pancreas.nii.gz
+│          └──...
+...
+```
+
+### Generate structured reports from segmentation
+AbdomenAtlas 3.0 (adjust dataset paths inside CreateAAReports.py):
+```bash
+python3 CreateAAReports.py --th 10 --csv_file /path/to/output/file.csv --num_workers 10 --dataset AA
+```
+
+## Generate narrative reports (style transfer w/ LLM)
+
+This step requires examples of human-made reports, and the LLM will adapt the style of the structured reports to match the style of the human-made reports. 
+
+```bash
+bash parallel_style_transfer.sh "0,1,2,3,4,5,6,7" 2 /path/to/structured_reports.csv free_text_reports.csv /path/to/output.csv
+```
+
+Arguments:
+```
+1. GPUS: Comma-separated list of GPU IDs (e.g., "0,1,2,3,4,5,6,7" for 8 gpus)
+2. NUM_INSTANCES: Number of LLMs you will create. Each one takes about 70GB. Calculate the total memory of all gpus in parameter 1, and check how many LLMs they fit. For 8 gpus of 25 GB each, we have a total of 200GB and can fit 2 LLMs (2*70=140). Thus, we set NUM_INSTANCES to 2 in this case.
+3. STRUCTURED_REPORTS: Path to the structured reports CSV file
+4. HUMAN_MADE_REPORTS: Path to the human-made reports CSV file
+5. OUTPUT: Path to the output CSV file
+```
+
+
+## Generate Enhanced Human Reports (w/ LLM)
+1- Deploy Llama API (takes about 10 minutes)
+
+About 70GB of VRAM should be enough for this model. Select the number of GPUs below according to this requirement (e.g., we used 4 x 24GB GPUs below). To modify number of GPUs, change CUDA_VISIBLE_DEVICES and tensor-parallel-size, number must be powers of 2 (1,2,4,8,...)
+```bash
+export NCCL_P2P_DISABLE=1
+TRANSFORMERS_CACHE=../HFCache HF_HOME=../HFCache CUDA_VISIBLE_DEVICES=0,1,2,3 vllm serve "hugging-quants/Meta-Llama-3.1-70B-Instruct-AWQ-INT4" --dtype=half --tensor-parallel-size 4 --gpu_memory_utilization 0.9 --port 8000 --max_model_len 120000 --enforce-eager > API.log 2>&1 &
+# Check if the API is up
+while ! curl -s http://localhost:8000/v1/models; do
+    echo "Waiting for API to be ready..."
+    sleep 5
+done
+```
+
+2- Fuse reports
+
+```bash
+python3 fuse.py --port 8000 --reports /path/to/narrative/reports.csv --radiology_notes AbdomenAtlasRadiologistsNotes.csv --output fusion_reports.csv
+```
+
+3- Stop the LLM API
+
+```bash
+pkill -f "vllm serve"
+```
