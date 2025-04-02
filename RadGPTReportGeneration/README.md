@@ -34,7 +34,7 @@ AbdomenAtlas
 ...
 ```
 
-Place the folder AbdomenAtlas inside this folder. You may use your own dataset, just rename and organize it as above.
+Place the folder AbdomenAtlas inside this folder (RadGPTReportGeneration). You may use your own dataset, just rename and organize it as above.
 
 ### Generate structured reports from segmentation
 ```bash
