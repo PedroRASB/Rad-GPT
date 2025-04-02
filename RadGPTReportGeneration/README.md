@@ -36,7 +36,7 @@ AbdomenAtlas
 
 Place the folder AbdomenAtlas inside this folder (RadGPTReportGeneration). You may use your own dataset, just rename and organize it as above.
 
-### Generate structured reports from segmentation
+## Generate structured reports from segmentation
 ```bash
 python3 CreateAAReports.py --th 10 --csv_file /path/to/output/file.csv --num_workers 10 --dataset AA
 ```
