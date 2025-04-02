@@ -52,8 +52,6 @@ pip install -r requirements.txt
 mkdir HFCache
 ```
 
-<details>
-
 
 ## Generate Structured, Narrative and Fusion Reports
 
