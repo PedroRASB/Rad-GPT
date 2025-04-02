@@ -58,9 +58,8 @@ conda install -y ipykernel
 conda install -y pip
 pip install -r requirements.txt
 ```
----
 
-## 2. Basic Usage
+## 2. Usage
 
 ```bash
 python SegmentPancreas.py \
