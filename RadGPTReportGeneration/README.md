@@ -34,8 +34,9 @@ AbdomenAtlas
 ...
 ```
 
+Place the folder AbdomenAtlas inside this folder. You may use your own dataset, just rename and organize it as above.
+
 ### Generate structured reports from segmentation
-AbdomenAtlas 3.0 (adjust dataset paths inside CreateAAReports.py):
 ```bash
 python3 CreateAAReports.py --th 10 --csv_file /path/to/output/file.csv --num_workers 10 --dataset AA
 ```
