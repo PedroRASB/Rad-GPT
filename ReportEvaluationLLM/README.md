@@ -1,6 +1,6 @@
 Code to extract quantitative information from radiology reports, such as presence/absence of liver, pancreas and kidney tumor, using a Large Language Model (LLM).
 
-# Installation
+## Installation
 
 Skip installation if you already installed the conda environment.
 
@@ -31,7 +31,7 @@ mkdir HFCache
 ```
 
 
-# Use the LLM to analyze radiology reports for cancer
+## Use the LLM to analyze radiology reports for cancer
 
 
 0- Organize the data
