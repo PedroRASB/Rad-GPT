@@ -1,8 +1,40 @@
-# Pancreas Splitter Script
+# Pancreas Sub-Segmentation Script
 
-This script splits a pancreas segmentation into head, body, and tail regions using a corresponding SMA (Superior Mesenteric Artery) segmentation. It processes NIfTI (`.nii.gz`) files, reorients/downsamples them as needed, and saves three separate segmentations (`head`, `body`, `tail`).
+This deterministic algorithm splits a pancreas segmentation mask into head, body, and tail regions using a corresponding SMA (Superior Mesenteric Artery) segmentation. It processes NIfTI (`.nii.gz`) files, reorients/downsamples them as needed, and saves three separate segmentations (`head`, `body`, `tail`).
 
----
+## Dataset Format
+
+Assemble the dataset in this format:
+```
+AbdomenAtlas
+├── BDMAP_A0000001
+|    ├── ct.nii.gz
+│    └── predictions
+│          ├── liver_tumor.nii.gz
+│          ├── kidney_tumor.nii.gz
+│          ├── pancreas_tumor.nii.gz
+│          ├── aorta.nii.gz
+│          ├── gall_bladder.nii.gz
+│          ├── kidney_left.nii.gz
+│          ├── kidney_right.nii.gz
+│          ├── liver.nii.gz
+│          ├── pancreas.nii.gz
+│          └──...
+├── BDMAP_A0000002
+|    ├── ct.nii.gz
+│    └── predictions
+│          ├── liver_tumor.nii.gz
+│          ├── kidney_tumor.nii.gz
+│          ├── pancreas_tumor.nii.gz
+│          ├── aorta.nii.gz
+│          ├── gall_bladder.nii.gz
+│          ├── kidney_left.nii.gz
+│          ├── kidney_right.nii.gz
+│          ├── liver.nii.gz
+│          ├── pancreas.nii.gz
+│          └──...
+...
+```
 
 ## 1. Installation
 
@@ -26,9 +58,8 @@ conda install -y ipykernel
 conda install -y pip
 pip install -r requirements.txt
 ```
----
 
-## 2. Basic Usage
+## 2. Usage
 
 ```bash
 python SegmentPancreas.py \
