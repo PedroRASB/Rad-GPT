@@ -71,7 +71,7 @@ python SegmentPancreas.py \
   --current_part 0 \
   --num_processes 1
 
-  	•	--source_dir: Directory containing subfolders/cases with pancreas.nii.gz.
+  •	--source_dir: Directory containing subfolders/cases with pancreas.nii.gz.
 	•	--sma_dir: Directory containing subfolders/cases with superior_mesenteric_artery.nii.gz.
 	•	--destination_dir: Path to where you want the output masks saved.
 	•	--restart: If included, reprocess even if outputs already exist.

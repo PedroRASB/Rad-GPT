@@ -23,6 +23,12 @@ Moreover, we present RadGPT, a segmentation-based report generation model which 
 Our “superhuman” reports are more accurate, detailed, standardized, and generated faster than traditional human-made reports. **Email zzhou82@jh.edu to get early access to this dataset.**
 
 
+## Paper
+
+<b>RadGPT: Constructing 3D Image-Text Tumor Datasets</b> <br/>
+[Pedro R. A. S. Bassi](https://scholar.google.com/citations?user=NftgL6gAAAAJ&hl=en), Mehmet Yavuz, Kang Wang, Sezgin Er, Ibrahim E. Hamamci, [Wenxuan Li](https://scholar.google.com/citations?hl=en&user=tpNZM2YAAAAJ), Xiaoxi Chen, Sergio Decherchi, Andrea Cavalli, [Yang Yang](https://scholar.google.com/citations?hl=en&user=6XsJUBIAAAAJ), [Alan Yuille](https://www.cs.jhu.edu/~ayuille/), [Zongwei Zhou](https://www.zongweiz.com/)* <br/>
+*Johns Hopkins University* <br/>
+<a href='https://www.zongweiz.com/dataset'><img src='https://img.shields.io/badge/Project-Page-Green'></a> <a href='https://www.cs.jhu.edu/~zongwei/publication/bassi2025radgpt.pdf'><img src='https://img.shields.io/badge/Paper-PDF-purple'></a> <a href='document/bassi2024rsna_radgpt.pdf'><img src='https://img.shields.io/badge/Slides-RSNA-orange'></a> [![YouTube](https://badges.aleen42.com/src/youtube.svg)](https://youtu.be/WxgyHNi2tLc)
 
 ## Installation
 
@@ -53,25 +59,18 @@ mkdir HFCache
 ```
 
 
-## Generate Structured, Narrative and Fusion Reports
+## Generate Structured, Narrative and Enhanced Human Reports
 
-Use Rad-GPT to generate reports from organ and tumor per-voxel segmentations.
+Use RadGPT to generate reports from organ and tumor per-voxel segmentations and to enhance human-made reports.
 
-[RadGPTReportGeneration/README.md](RadGPTReportGeneration/README.md)
+[generate_reports/README.md](RadGPTReportGeneration/README.md)
 
-## Evaluate the Diagnoses in the Reports
+## Evaluate the Diagnoses in the Reports with LLM
 
-LLM (labeler) extracts binary labels indicating if reports indicate the presence or absence of liver, kidney and pancreatic cancers. These labels can be used to compare AI-made reports to human-made reports (ground-truth) and evaluate cancer detection specificity and sensitivity.
+LLM (labeler) extracts binary labels indicating if reports indicate the presence or absence of liver, kidney and pancreatic cancers (or any cancer). These labels can be used to compare AI-made reports to human-made reports (ground-truth) and evaluate cancer detection specificity and sensitivity.
 
-[ReportEvaluationLLM/README.md](ReportEvaluationLLM/README.md)
+[evaluate_reports/README.md](ReportEvaluationLLM/README.md)
 
-
-## Paper
-
-<b>RadGPT: Constructing 3D Image-Text Tumor Datasets</b> <br/>
-[Pedro R. A. S. Bassi](https://scholar.google.com/citations?user=NftgL6gAAAAJ&hl=en), Mehmet Yavuz, Kang Wang, Sezgin Er, Ibrahim E. Hamamci, [Wenxuan Li](https://scholar.google.com/citations?hl=en&user=tpNZM2YAAAAJ), Xiaoxi Chen, Sergio Decherchi, Andrea Cavalli, [Yang Yang](https://scholar.google.com/citations?hl=en&user=6XsJUBIAAAAJ), [Alan Yuille](https://www.cs.jhu.edu/~ayuille/), [Zongwei Zhou](https://www.zongweiz.com/)* <br/>
-*Johns Hopkins University* <br/>
-<a href='https://www.zongweiz.com/dataset'><img src='https://img.shields.io/badge/Project-Page-Green'></a> <a href='https://www.cs.jhu.edu/~zongwei/publication/bassi2025radgpt.pdf'><img src='https://img.shields.io/badge/Paper-PDF-purple'></a> <a href='document/bassi2024rsna_radgpt.pdf'><img src='https://img.shields.io/badge/Slides-RSNA-orange'></a> [![YouTube](https://badges.aleen42.com/src/youtube.svg)](https://youtu.be/WxgyHNi2tLc)
 
 ## Citation
 
