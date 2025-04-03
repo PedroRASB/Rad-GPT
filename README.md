@@ -63,13 +63,13 @@ mkdir HFCache
 
 Use RadGPT to generate reports from organ and tumor per-voxel segmentations and to enhance human-made reports.
 
-[generate_reports/README.md](RadGPTReportGeneration/README.md)
+[generate_reports/README.md](generate_reports/README.md)
 
 ## Evaluate the Diagnoses in the Reports with LLM
 
 LLM (labeler) extracts binary labels indicating if reports indicate the presence or absence of liver, kidney and pancreatic cancers (or any cancer). These labels can be used to compare AI-made reports to human-made reports (ground-truth) and evaluate cancer detection specificity and sensitivity.
 
-[evaluate_reports/README.md](ReportEvaluationLLM/README.md)
+[evaluate_reports/README.md](evaluate_reports/README.md)
 
 
 ## Citation
