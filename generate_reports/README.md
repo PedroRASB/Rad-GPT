@@ -7,6 +7,7 @@ Assemble the dataset in this format:
 <details>
 <summary style="margin-left: 25px;">Dataset format.</summary>
 <div style="margin-left: 25px;">
+
 ```
 AbdomenAtlas
 ├── BDMAP_A0000001
