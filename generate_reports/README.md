@@ -51,7 +51,7 @@ python3 CreateAAReports.py --th 10 --csv_file /path/to/output/file.csv --num_wor
 ```
 
 ## Generate narrative reports (style adaptation w/ LLM)
-RadGPT adapts the style of the structured reports, mimicking the style of human-made narrative reports. It uses LLMs and in-context learning. This step requires examples of human-made reports, we provide a few in free_text_reports.csv. Please add more reports in the file to make style adaptation effective. We sugegst at least 10 reports per tumor type and 10 normal.
+RadGPT adapts the style of the structured reports, mimicking the style of human-made narrative reports. It uses LLMs and in-context learning. This step requires examples of human-made reports, we provide a few in free_text_reports.csv. Please add more reports in the file to make style adaptation effective (you can use AbdomenAtlas 3.0 narrative reports here).
 <details>
 <summary style="margin-left: 25px;">[Optional] Match the writing style of any hospital.</summary>
 <div style="margin-left: 25px;">
