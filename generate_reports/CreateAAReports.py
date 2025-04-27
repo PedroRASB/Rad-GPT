@@ -1675,13 +1675,13 @@ def real_multi_organ_report(folder,names,anno_folder,item,skip_incomplete,plot,N
                 if clss!='colon':
                     #kidneys
                     if 'Bilateral kidneys are enlarged' in report:
-                        impressions += 'Enlarged kindeys. '
+                        impressions += 'Enlarged kidneys. '
                     elif 'Right kidney size is enlarged' in report:
                         impressions += 'Enlarged right kidney. '
                     elif 'Left kidney size is enlarged' in report:
                         impressions += 'Enlarged left kidney. '
                     elif 'Bilateral kidneys are massively enlarged' in report:
-                        impressions += 'Massively enlarged kindeys. '
+                        impressions += 'Massively enlarged kidneys. '
                     elif 'Right kidney size is massively enlarged' in report:
                         impressions += 'Massively enlarged right kidney. '
                     elif 'Left kidney size is massively enlarged' in report:
@@ -1697,13 +1697,13 @@ def real_multi_organ_report(folder,names,anno_folder,item,skip_incomplete,plot,N
                 if clss!='colon':
                     #kidneys
                     if 'Bilateral kidneys are enlarged' in report:
-                        impressions += 'Enlarged kindeys. '
+                        impressions += 'Enlarged kidneys. '
                     elif 'Right kidney size is enlarged' in report:
                         impressions += 'Enlarged right kidney. '
                     elif 'Left kidney size is enlarged' in report:
                         impressions += 'Enlarged left kidney. '
                     elif 'Bilateral kidneys are massively enlarged' in report:
-                        impressions += 'Massively enlarged kindeys. '
+                        impressions += 'Massively enlarged kidneys. '
                     elif 'Right kidney size is massively enlarged' in report:
                         impressions += 'Massively enlarged right kidney. '
                     elif 'Left kidney size is massively enlarged' in report:
