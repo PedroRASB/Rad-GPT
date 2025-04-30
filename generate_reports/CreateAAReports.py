@@ -1463,12 +1463,12 @@ def organ_text(healthy,tumors,ct,organ,spacing,clss,skip_incomplete,item,organ_r
 
     
     if phase is not None and phase=='Plain':
-        if clss=='liver' and spleen_hu is not None:
+        if clss=='liver' and (spleen_hu is not None) and (organ_hu is not None):
             if att=='fatty':
                 text+=f"Fatty infiltration (Mean HU value: {organ_hu} +/- {organ_hu_std}).\n"
             else:
                 text+=f"Normal attenuation (Mean HU value: {organ_hu} +/- {organ_hu_std}).\n"
-        elif clss=='pancreas':
+        elif clss=='pancreas' and (spleen_hu is not None) and (organ_hu is not None):
             if att=='fatty':
                 text+=f"Fatty infiltration, mean HU value: {organ_hu} +/- {organ_hu_std}, pancreatic index (P/S): {np.round(organ_hu/spleen_hu,2)}.\n"
             else:
